@@ -11,7 +11,7 @@ body {
 }
 
 a {
-  color: inherit;
+  color: rgb(125, 27, 27);
   text-decoration: none;
 }
 
@@ -19,12 +19,12 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+nav {
+  padding-bottom: 2rem;
 }

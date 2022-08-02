@@ -1,4 +1,3 @@
-import { GetStaticProps, GetStaticPaths } from 'next';
 import Image from 'next/image';
 import Head from 'next/head';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
@@ -7,30 +6,43 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeHighlight from 'rehype-highlight';
 import { getPostFromSlug, getSlugs } from '../../src/api';
-// import Youtube from '../../src/components';
+import Youtube from '../../src/components/Youtube.js';
+import 'highlight.js/styles/atom-one-dark.css';
 
-export default function PostPage() {
+export default function PostPage({ post }) {
   return (
     <>
       <Head>
-        <title>Post Title</title>
+        <title>{post.meta.title}</title>
       </Head>
-      <h1>Post Title</h1>
+      <h1>{post.meta.title}</h1>
+      <div
+        className={
+          'text-center max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 shadow-2xl rounded-lg p-7'
+        }
+      >
+        <MDXRemote {...post.source} components={{ Youtube, Image }} />
+      </div>
     </>
   );
 }
 
-export async function GetStaticProps({ params }) {
+export const getStaticProps = async ({ params }) => {
   const { slug } = params;
   const { content, meta } = getPostFromSlug(slug);
-  const mdxSource = await serialize(content);
+  const mdxSource = await serialize(content, {
+    mdxOptions: {
+      rehypePlugins: [
+        rehypeSlug,
+        [rehypeAutolinkHeadings, { behavior: 'wrap' }],
+        rehypeHighlight,
+      ],
+    },
+  });
+  return { props: { post: { source: mdxSource, meta } } };
+};
 
-  console.log(mdxSource);
-
-  return { props: {} };
-}
-
-export const GetStaticPaths = (async) => {
+export const getStaticPaths = async () => {
   const paths = getSlugs().map((slug) => ({ params: { slug } }));
 
   return {
