@@ -15,12 +15,8 @@ export default function PostPage({ post }) {
       <Head>
         <title>{post.meta.title}</title>
       </Head>
-      <h1>{post.meta.title}</h1>
-      <div
-        className={
-          'text-center max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 shadow-2xl rounded-lg p-7'
-        }
-      >
+      <h1 className="text-center">{post.meta.title}</h1>
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 shadow-2xl rounded-lg p-7">
         <MDXRemote {...post.source} components={{ Youtube, Image }} />
       </div>
     </>

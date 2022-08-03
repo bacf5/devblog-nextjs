@@ -1,9 +1,6 @@
 import Link from 'next/link';
 
 export default function Articles({ posts }) {
-  console.log(posts);
-  // const
-
   return (
     <ul className="text-lg">
       {posts.map((post) => (

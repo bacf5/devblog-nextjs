@@ -3,7 +3,6 @@ import { getAllPosts } from '../../src/api';
 import Articles from '../../src/components/Articles';
 
 export default function TagPage({ slug, posts }) {
-  console.log(slug, posts);
   return (
     <>
       <Head>
