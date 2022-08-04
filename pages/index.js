@@ -7,18 +7,16 @@ export default function Home({ posts: posts }) {
   return (
     <>
       <nav className="flex items-center justify-center">
-        <span className=" ">
-          <Image
-            src="/logo-blog.png"
-            width={190}
-            height={125}
-            alt="logo-blog"
-            className=""
-          />
-        </span>
+        <Image
+          src="/logo-blog.png"
+          width={210}
+          height={135}
+          alt="logo-blog"
+          className=""
+        />
       </nav>
 
-      <div className="text-center max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 shadow-2xl rounded-lg p-7">
+      <div className="text-center -mt-8 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 shadow-2xl rounded-lg p-8">
         <h1>Articles</h1>
         <Articles posts={posts} />
       </div>
