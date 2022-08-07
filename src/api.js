@@ -4,12 +4,7 @@ import { sync } from 'glob';
 import matter from 'gray-matter';
 import { cwd } from 'process';
 
-const POSTS_PATH = path.join(process.cwd(), 'posts');
-
-// [
-//   '/Users/bacf/Desktop/Projects.nosync/nextjs-blog/posts/reduce.mdx',
-//   '/Users/bacf/Desktop/Projects.nosync/nextjs-blog/posts/swr.mdx',
-// ];
+const POSTS_PATH = path.join(cwd(), 'posts');
 
 export const getSlugs = () => {
   const paths = sync(`${POSTS_PATH}/*.mdx`);
