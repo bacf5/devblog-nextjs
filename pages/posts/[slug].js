@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Head from 'next/head';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -15,8 +15,10 @@ export default function PostPage({ post }) {
       <Head>
         <title>{post.meta.title}</title>
       </Head>
-      <h1 className="text-center">{post.meta.title}</h1>
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 shadow-2xl rounded-lg p-7">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 shadow-2xl rounded-lg p-7 -mt-8">
+        <h1 className="text-center text-xl mb-2 font-semibold underline">
+          {post.meta.title}
+        </h1>
         <MDXRemote {...post.source} components={{ Youtube, Image }} />
       </div>
     </>

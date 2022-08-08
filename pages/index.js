@@ -9,16 +9,13 @@ export default function Home({ posts: posts }) {
       <Head>
         <title>Dev blog!</title>
       </Head>
-
-      {/* <nav className="flex items-center justify-center">
-        <Image src="/logo-blog.png" width={210} height={135} alt="logo-blog" />
-      </nav> */}
-
       <div className="text-center -mt-8 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 shadow-2xl rounded-lg p-8">
-        <h1 className="text-xl underline text-slate-700">Articles</h1>
+        <h1 className="text-xl text-slate-700 -mt-3 font-semibold text-left">
+          /articles
+        </h1>
         <Articles posts={posts} />
         <span className="flex justify-center pt-4">
-          <a href="https://github.com/bacf5/tenzies-game-tailwind">
+          <a href="https://github.com/bacf5/devblog-nextjs">
             <svg
               className="m-1 hover:scale-125 ease-in duration-200"
               width="32px"

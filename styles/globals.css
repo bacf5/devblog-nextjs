@@ -19,6 +19,21 @@ a {
   box-sizing: border-box;
 }
 
+h2 {
+  padding: 0.7rem;
+  font-size: 20px;
+}
+
+p {
+  padding: 0.4rem;
+}
+
+ul {
+  margin-left: 40px;
+  list-style-type: square;
+  padding: 8px;
+}
+
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -26,5 +41,5 @@ a {
 }
 
 nav {
-  padding-bottom: 2rem;
+  padding-bottom: 1.5rem;
 }

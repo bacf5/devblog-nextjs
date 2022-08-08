@@ -8,7 +8,7 @@ export default function TagPage({ slug, posts }) {
       <Head>
         <title>Tag: {slug}</title>
       </Head>
-      <h1>Tag: {slug}</h1>
+      <h1>You are seeing all the posts with the tag: {slug}</h1>
       <Articles posts={posts} />
     </>
   );
