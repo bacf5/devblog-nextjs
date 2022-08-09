@@ -13,7 +13,7 @@ export const getSlugs = () => {
     const parts = path.split('/');
     const fileName = parts[parts.length - 1];
     const [slug, _ext] = fileName.split('.');
-    return slug;
+    return slug; // [*names of the articles in ./posts/*.mdx] These will end up being the different slugs that show up in the url for each article.
   });
 };
 
@@ -21,8 +21,10 @@ export const getAllPosts = () => {
   const posts = getSlugs()
     .map((slug) => getPostFromSlug(slug))
     .sort((a, b) => {
+      // Sorting the blog posts in ascending order from newest to oldest
       if (a.meta.date > b.meta.date) return 1;
       if (a.meta.date < b.meta.date) return -1;
+      return 0;
     })
     .reverse();
   return posts;
