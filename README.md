@@ -10,5 +10,5 @@ This is the source code of my personal [blog](https://blog-bacf.vercel.app) depl
 
 ## Design
 
-- Every component is found under `./components`
+- Every component is found under `./src/components`
 - All MDX blog posts are found under `./posts`
