@@ -5,7 +5,7 @@ This is the source code of my personal [blog](https://blog-bacf.vercel.app) depl
 ## Tech
 
 - Built with [Nextjs](https://nextjs.org/), [TailwindCSS](https://tailwindcss.com/), MDX and syntax highlighting.
-- Set up SEO with sitemaps.
+- Set up SEO with sitemaps. [to do]
 - Each tag page is automatically generated as static HTML + JSON (uses **getStaticProps()**)
 
 ## Design
