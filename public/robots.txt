@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://blog-bacf.vercel.app
+
+# Sitemaps
+Sitemap: https://blog-bacf.vercel.app/sitemap.xml
