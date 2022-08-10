@@ -4,6 +4,7 @@ import { sync } from 'glob';
 import matter from 'gray-matter';
 import { cwd } from 'process';
 
+// cwd() gets the current working directory
 const POSTS_PATH = path.join(cwd(), 'posts');
 
 export const getSlugs = () => {
@@ -38,7 +39,7 @@ export const getPostFromSlug = (slug) => {
     content,
     meta: {
       slug,
-      excerpt: data.excerpt,
+      excerpt: data.excerpt ?? [],
       title: data.title ?? slug,
       tags: (data.tags ?? []).sort(),
       date: (data.date ?? new Date()).toString(),

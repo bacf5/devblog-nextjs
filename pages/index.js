@@ -1,6 +1,5 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import { getAllPosts, PostMeta } from '../src/api';
+import { getAllPosts } from '../src/api';
 import Articles from '../src/components/Articles';
 
 export default function Home({ posts: posts }) {

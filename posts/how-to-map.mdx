@@ -1,0 +1,48 @@
+---
+title: How to map the *.mdx files
+tags:
+  - mdx
+  - javascript
+  - map
+date: 2022-08-09
+excerpt: How to map the *.mdx files and display each article title in the home page
+---
+
+So, how do I iterate the `*.mdx` posts folder to get the articles?
+
+first, we need to import a few modules
+
+```js
+import path from 'path';
+import fs from 'fs';
+import { sync } from 'glob';
+import matter from 'gray-matter';
+import { cwd } from 'process';
+```
+
+then we create the path to the current working directory with node.js `process.cwd()`
+
+```js
+const POSTS_PATH = path.join(cwd(), 'posts');
+```
+
+Now, we create our function to get the slug
+
+```js
+export const getSlugs = () => {
+  const paths = sync(`${POSTS_PATH}/*.mdx`);
+
+  return paths.map((path) => {
+    const parts = path.split('/');
+    const fileName = parts[parts.length - 1];
+    const [slug, _ext] = fileName.split('.');
+    return slug;
+  });
+};
+```
+
+What do we get from this function is the name of the file inside our `/posts/[name]`.
+
+We use this slug to get also our URL routing
+
+[... in progress]
