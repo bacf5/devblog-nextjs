@@ -1,0 +1,67 @@
+---
+title: Generate sitemap for better SEO with Nextjs
+tags:
+  - seo
+  - nextjs
+  - sitemap
+date: 2022-08-11
+excerpt: How to automatically generate a sitemap for a better SEO (Search Engine Optimization)
+---
+
+<br />
+## What is a sitemap?
+
+A sitemap is a file where you provide information about the pages, videos,
+and other files on your site, and the relationships between them. Search engines
+like Google read this file to crawl your site more efficiently.
+
+## Maybe you are asking, why is important to have a sitemap?
+
+well, the answer is easy, it helps Google to crawl your website for a better indexation on their google search and find all of the pages correctly.
+
+## How a sitemap looks like?
+
+<Image
+  src="/images/sitemap-example.png"
+  width={700}
+  height={450}
+  layout="intrinsic"
+/>
+
+<br />
+To do this, we need to add a package to our project, called: `next-sitemap`
+
+```js
+npm i next-sitemap
+```
+
+and once you've done that you need to add a `post build` step to your scripts in package.json file:
+
+```js
+"scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "postbuild": "next-sitemap" // <-- this line
+  }
+```
+
+The way `next-sitemap` works is if you don't have to sort of dynamically handle any pages it just look at what are all of the differents static pages that exist inside of this Nextjs project/blog.
+
+You need to add a new file called `next-sitemap.config.js` with the lines:
+
+```js
+const siteUrl = 'https://blog-bacf.vercel.app'; // <-- Your main host where your page is building
+
+module.exports = {
+  siteUrl,
+  generateRobotsTxt: true,
+  robotsTxtOptions: {
+    policies: [{ userAgent: '*', allow: '/' }], // <-- Allows to crawl all the pages dynamically generated
+  },
+};
+```
+
+<br />
+Bruno.
