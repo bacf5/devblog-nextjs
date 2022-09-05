@@ -8,7 +8,14 @@ export default function TagPage({ slug, posts }) {
       <Head>
         <title>Tag: {slug}</title>
       </Head>
-      <h1>You are seeing all the posts with the tag: {slug}</h1>
+      <div className="flex justify-center">
+        <h1 className="text-lg">
+          • You are seeing all the posts with the tag:{' '}
+          <h2 className="text-sm text-center underline decoration-sky-500 decoration-wavy">
+            {slug}
+          </h2>
+        </h1>
+      </div>
       <Articles posts={posts} />
     </>
   );
