@@ -43,3 +43,7 @@ ul {
 nav {
   padding-bottom: 1.5rem;
 }
+
+code {
+  font-size: 12px;
+}

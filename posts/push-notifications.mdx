@@ -1,0 +1,138 @@
+---
+title: Crear notificaciones push en Javascript [ES]
+tags:
+  - javascript
+  - notifications
+  - push
+date: 3
+excerpt: Como enviar notificaciones push desde nuestra web con Javascript
+---
+
+## Que son las notificaciones push?
+
+- Una notificación push o notificación emergente es un mensaje corto que aparece directamente en la pantalla principal del teléfono o la computadora del usuario.
+- Las características de las notificaciones push dependen del tipo de dispositivo que utilice el usuario.
+- Una notificación push para web se configura directamente en el navegador web. Están vinculadas a un sitio web y no es necesario desarrollar una aplicación específica para enviarlas.
+
+## Empezamos:
+
+Primero que todo, necesitamos pedir "permiso" al usuario para poder envíarle notificaciones
+
+```js
+// /script.js
+
+const button = document.querySelector('button'); // Seleccionamos el botón del DOM
+
+button.addEventListener('click', () => {
+  Notification.requestPermission().then((perm) => {
+    alert(perm); // Alertamos si es "granted " = tenemos permiso / si es "denied" = no tenemos permiso
+  });
+});
+```
+
+<br/>
+Luego, lo que tenemos que hacer es interactuar con el mismo objecto `Notification()`
+<br/>
+```js
+button.addEventListener('click', () => {
+  Notification.requestPermission().then((perm) => {
+    if (perm === 'granted') new Notification('Ejemplo de notificación');
+  });
+});
+```
+
+Que nos devuelve esta notificación:
+
+<br />
+<div
+  style={{
+    display: 'flex',
+    justifyContent: 'center',
+  }}
+>
+  <Image src="/images/notification/example.png" width={550} height={250} />
+</div>
+
+<br />
+Ésta es la forma más básica de generar notificaciones en nuestra web.
+
+Lo importante es **_saber usar y no abusar_** de esta herramienta, porque creo que a nadie le gusta que le envíen muchas notificaciones, sea en Windows, Mac o en un telefono móvil.
+
+## La propiedad **_body_**
+
+- La propiedad body dentro del objeto `Notification()` es una de las más importante ya que nos permite explayarnos un poco más sobre nuestra notificación. Sólo debemos agregar la propiedad body, así:
+
+<br />
+
+```js
+button.addEventListener('click', () => {
+  Notification.requestPermission().then((perm) => {
+    if (perm === 'granted')
+      new Notification('Ejemplo de notificación', {
+        body: 'Acá hay más información',
+      });
+  });
+});
+```
+
+<br />
+<div
+  style={{
+    display: 'flex',
+    justifyContent: 'center',
+  }}
+>
+  <Image
+    src="/images/notification/example-with-body.png"
+    width={600}
+    height={200}
+  />
+</div>
+
+<br />
+
+## La propiedad **_icon_**
+
+- Con esta propiedad, podemos agregar un icono a nuestra notificación, para que quede mejor presentada:
+
+```js
+// La imágen debería estar en nuestra carpeta principal
+
+button.addEventListener('click', () => {
+  Notification.requestPermission().then((perm) => {
+    if (perm === 'granted')
+      new Notification('Ejemplo de notificación', {
+        body: 'Acá hay más información',
+        icon: 'alert-png.png', // nombre de la imagen o lugar donde se encuentra
+  });
+});
+```
+
+y el resultado se vería así:
+
+<br />
+<div
+  style={{
+    display: 'flex',
+    justifyContent: 'center',
+  }}
+>
+  <Image
+    src="/images/notification/example-with-logo.png"
+    width={600}
+    height={200}
+  />
+</div>
+
+<br />
+
+Hay muchas opciones más para realizar con notificaciones, pero esto es lo básico para empezar a notificar en tu web distintas cosas.
+
+<div
+  style={{
+    display: 'flex',
+    justifyContent: 'right',
+  }}
+>
+  Bruno.
+</div>

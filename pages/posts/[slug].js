@@ -15,6 +15,7 @@ export default function PostPage({ post }) {
       <Head>
         <title>{post.meta.title}</title>
       </Head>
+
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 shadow-2xl rounded-lg p-7 -mt-8">
         <h1 className="text-center text-xl mb-2 font-semibold underline">
           {post.meta.title}
