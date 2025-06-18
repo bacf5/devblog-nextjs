@@ -1,0 +1,123 @@
+---
+title: My Swift Development Journey: Lesson 1 - Starting an Xcode Project [EN]
+tags:
+  - iOSDev
+  - Xcode
+  - Github
+  - Swift
+date: 4
+excerpt: My Swift Development Journey
+---
+
+# My Swift Development Journey: Lesson 1 - Starting an Xcode Project
+
+**Date:** 18/06/2025  
+**Author:** Bruno
+
+---
+
+## Beginning My iOS Development Adventure
+
+Hello, curious minds! 👋
+
+I've decided to dive into iOS development and learn **Swift**—Apple's powerful and intuitive programming language. My goal? To build my first app from scratch!
+
+In this first lesson, I focused on the basics: **creating and setting up a new Xcode project**. Here's what I learned—and some extra fun stuff I explored along the way.
+
+---
+
+## Lesson 1: Create and Set Up a New Xcode Project
+
+### Step 1: Launching Xcode and Starting Fresh
+
+I opened Xcode (after downloading it from the Mac App Store, of course) and clicked **"Create a New Xcode Project."**
+
+- Selected **iOS > App** as the template.
+- Filled in the project details:
+  - **Product Name:** MyFirstApp
+  - **Organization Identifier:** com.myusername (reverse domain style)
+  - **Interface:** SwiftUI (I've heard it's more beginner-friendly!)
+  - **Language:** Swift
+
+✅ **Success!** My project was created.
+
+### Step 2: Adding Images and Icons
+
+I wanted to make my app visually appealing, so I learned how to add **assets**.
+
+1. **Adding App Icons**
+
+   - Went to `Assets.xcassets` > Right-click > **New iOS App Icon**.
+   - Dragged and dropped appropriately sized PNGs into the slots.
+   - Learned that Apple requires multiple sizes for different devices.
+
+2. **Including Custom Images**
+   - Created a new **Image Set** in `Assets.xcassets`.
+   - Added my image files (ensuring I had @1x, @2x, and @3x versions for retina displays).
+
+💡 _Pro Tip:_ Use [AppIcon Generator](https://appicon.co/) to quickly generate all required icon sizes!
+
+---
+
+## Bonus: Going Beyond the Basics
+
+As usual, curiosity got the best of me, and I ended up exploring a few extra things:
+
+### 1. Connecting Xcode to GitHub (Source Control)
+
+I wanted to back up my project, so I set up **Git version control** in Xcode.
+
+- **Steps:**
+  - Opened **Source Control Navigator** in Xcode.
+  - Selected **"Create Git Repositories on My Mac"** to initialize a local repo.
+  - Then, I linked it to **GitHub** by:
+    - Going to **Xcode > Preferences > Accounts**.
+    - Added my GitHub account using **"+" > GitHub**.
+
+### 2. Generating a GitHub Personal Access Token
+
+Since Xcode no longer supports password authentication, I had to create a **Personal Access Token (PAT)**.
+
+- Went to **GitHub > Settings > Developer Settings > Personal Access Tokens**.
+- Generated a new token with **repo** permissions.
+- Used this token instead of a password when pushing to GitHub.
+
+### 3. Researching Which Files to Exclude from GitHub
+
+I didn't want to clutter my repo with unnecessary files, so I Googled:
+
+> _"Which files should I exclude when uploading an Xcode project to GitHub?"_
+
+Turns out, I should **ignore**:
+
+- `DerivedData/` (build artifacts)
+- `.DS_Store` (macOS metadata)
+- `*.xcuserstate` (user-specific settings)
+
+I added these to a `.gitignore` file using a [Swift-specific template](https://github.com/github/gitignore/blob/main/Swift.gitignore).
+
+---
+
+## Key Takeaways
+
+✅ **Xcode setup is straightforward**, but asset management (icons, images) requires attention to detail.  
+✅ **GitHub integration** is super useful—version control from day one is a must!  
+✅ **Personal Access Tokens (PATs)** are now the way to authenticate with GitHub in Xcode.  
+✅ **.gitignore** helps keep the repo clean—don't upload unnecessary files!
+
+---
+
+## Next Steps
+
+In **Lesson 2**, the plan is:
+
+- Learn **SwiftUI basics** (Text, Buttons, Layouts).
+- Experiment with **previews and live reloading**.
+- ZStack
+- VStack
+- Break down screen design
+- Lay out stacks
+
+If you're also learning Swift, let's connect and share our progress.
+
+**Tags:** #Swift #iOSDev #Xcode #GitHub #LearningToCode
