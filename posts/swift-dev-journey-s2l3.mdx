@@ -1,0 +1,74 @@
+---
+title: SwiftUI - Adding views to the design [EN]
+tags:
+  - iOSDev
+  - Xcode
+  - Swift
+date: 5
+excerpt: Deeper into SwiftUI Stack
+---
+
+**Date:** 19/06/2025  
+**Author:** Bruno
+
+<br />
+
+## Understanding SwiftUI Stacks and Image Modifiers
+
+Today, I dove deeper into SwiftUI and explored the powerful ways to structure layouts using **stacks**—specifically `ZStack`, `HStack`, and `VStack`. I also worked with images, learning how to resize and position them effectively. Here’s a breakdown of what I learned:
+
+## The Three Key Stacks in SwiftUI
+
+1. `HStack` **(Horizontal Stack)** – Arranges views side by side in a horizontal line.
+2. `VStack` **(Vertical Stack)** – Stacks views vertically, one above the other.
+3. `ZStack` **(Z-axis Stack)** – Layers views on top of each other, useful for overlapping elements.
+
+We can see an example of this in this picture:
+
+<br />
+
+<div
+  style={{
+    display: 'flex',
+    justifyContent: 'center',
+  }}
+>
+  <Image src="/images/ios-devjourney/stacks-vhz.png" width={750} height={550} />
+</div>
+
+<br />
+
+## Working with Images
+
+I also explored how to adjust images in SwiftUI using modifiers:
+
+- **`.resizable()`** – Allows an image to scale to fit its container.
+- **`.scaledToFit()`** – Maintains aspect ratio while fitting within bounds.
+- **`.ignoresSafeArea()`** – Extends the view beyond the safe area (great for full-screen backgrounds).
+- **`Spacer()`** – Pushes views apart, helping with flexible layouts.
+
+An example would be:
+
+<br />
+
+```Swift
+Image(systemName: "star.fill")
+    .resizable()
+    .scaledToFit()
+    .frame(width: 100, height: 100)
+
+```
+
+<br />
+
+## Last but not least: SF Symbols – A Handy Resource
+
+I downloaded **SF Symbols**, Apple’s built-in icon library, which integrates seamlessly with SwiftUI. Using `Image(systemName:)`, we can easily add scalable, customizable icons to our apps.
+
+<br />
+
+---
+
+<br />
+
+Check the code of the app [here](https://github.com/bacf5/LOTRConverter), ciao!
