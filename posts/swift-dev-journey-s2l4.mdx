@@ -1,0 +1,121 @@
+---
+title: Properties, State, and View Modifiers [EN]
+tags:
+  - iOSDev
+  - Xcode
+  - Swift
+date: 6
+excerpt: several key Swift and SwiftUI concepts
+---
+
+**Date:** 21/06/2025  
+**Author:** Bruno
+
+<br />
+
+Here we going to cover several key Swift and SwiftUI concepts, including button views, variables differences between `var` & `let`, stored properties, the `@State` property wrapper, and debugging with `print()`. Below is a detailed breakdown of these topics.
+
+<br />
+
+## **Variables in Swift: `var` vs. `let`**
+
+In Swift, variables can be declared in two ways:
+
+- **`var`** – Mutable (can be changed after declaration).
+- **`let`** – Immutable (cannot be changed after declaration).
+
+## **Structs and Mutability**
+
+In Swift, `struct` (value types) properties are **immutable by default**. This means you cannot modify a struct’s property unless:
+
+- The struct is declared as a `var`.
+- The property is marked with a **property wrapper** like `@State`.
+
+<br />
+
+without `@State`
+
+- ```swift
+  struct MyView: View {
+      var title: String = "Hello"  // Immutable (cannot modify   inside the view)
+  }
+  ```
+
+<br />
+
+with `@State`
+
+- ```swift
+  struct MyView: View {
+      @State var title: String = "Hello"  // Mutable due to @State
+  }
+  ```
+
+<br />
+
+<br />
+
+## **Toggling a Boolean with _.toggle()_**
+
+The `.toggle()` method inverts a boolean value:
+
+<br />
+
+-  ```swift
+    @State var showExchangeInfo = false
+
+    Button("Toggle") {
+    showExchangeInfo.toggle()  // Changes false → true or true → false
+    print("Current state: \(showExchangeInfo)")}
+
+<br />
+
+## **Add & Modify Button Views in SwiftUI**
+
+SwiftUI makes UI building declarative, which means you define what the interface should look like and how it should react to state changes. Adding and modifying button views is simple:
+
+<br />
+
+- ```swift
+    Button("Tap Me") {
+    print("Button tapped")}
+
+<br />
+
+You can customize these views further using modifiers like `.padding(), .background(), .foregroundColor()`, and others.
+
+<br />
+
+## **Debugging with _print()_ and String Interpolation**
+
+<br />
+
+**Using `print()`**
+
+Helps debug by logging values to the console:
+
+<br />
+
+- ```swift 
+  print("Show Exchange Info: \(showExchangeInfo)")
+
+<br />
+
+**String Interpolation**
+
+The values inside the parentheses `“\()”` are evaluated and converted into their string representation before being inserted into the string. This is incredibly useful for testing, as you can see the exact values of your properties at different points in your code.
+
+
+- ````swift
+    let name = "Bruno"
+    print("Hello, \(name)!")  // Output: "Hello, Bruno!"
+
+<br />
+
+## **View Modifiers: Padding Options**
+
+SwiftUI provides **view modifiers** to adjust layout, such as:
+
+- `.padding()` – Adds equal padding on all sides.
+- `.padding(.trailing)` – Adds padding only on the right.
+- Other options: `.leading`, `.top`, `.bottom`, `.horizontal`, `.vertical`.
